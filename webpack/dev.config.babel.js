@@ -13,6 +13,10 @@ export default {
   plugins: [
     new BundleTracker({filename: path.resolve(process.cwd(), 'webpack-stats.json')}),
   ],
+  resolve: {
+    root: process.cwd(),
+    extensions: ['', '.js', '.jsx'],
+  },
   module: {
     preLoaders: [
       {
@@ -31,7 +35,7 @@ export default {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         loaders: ['react-hot', 'babel'],
-      }
+      },
     ]
   },
   plugins: [
